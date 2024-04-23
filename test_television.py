@@ -1,5 +1,5 @@
 import pytest
-from television import Television
+from television import *
 
 
 # Test init method
@@ -20,15 +20,21 @@ def test_power():
 # Test mute method
 def test_mute():
     tv = Television()
-    tv.volume_up()  # Increase volume once
-    tv.mute()
-    assert str(tv) == "Power = False, Channel = 0, Volume = 0"  # Check when TV is off and muted
-    tv.power()      # Turn on TV
-    tv.mute()
-    assert str(tv) == "Power = True, Channel = 0, Volume = 0"   # Check when TV is on and muted
-    tv.mute()
-    assert str(tv) == "Power = True, Channel = 0, Volume = 1"   # Check when TV is on and unmuted
+    tv.power()          # Turn on TV
+    tv.volume_up()      # Increase volume once
+    tv.mute()           # Mute TV
+    assert str(tv) == "Power = True, Channel = 0, Volume = 0"
+    # Test when TV is on and unmuted
+    tv.mute()           # Unmute TV
+    assert str(tv) == "Power = True, Channel = 0, Volume = 1"  # Check unmuted state and volume retained
+    # Test when TV is off and muted
+    tv.power()          # Turn off TV
+    tv.mute()           # Mute TV
+    assert str(tv) == "Power = False, Channel = 0, Volume = 0"  # Check muted state when TV is off
 
+    # Test when TV is off and unmuted
+    tv.mute()           # Unmute TV
+    assert str(tv) == "Power = False, Channel = 0, Volume = 1"  # Check unmuted state when TV is off
 
 # Test channel_up method
 def test_channel_up():
