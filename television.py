@@ -71,6 +71,6 @@ class Television:
         Method to show power, channel, and volume status of tv
         """
         if self.__muted:
-            return f'Power {self.__status}, Channel {self.__channel}, Volume {Television.MIN_VOLUME}'
+            return f'Power = {self.__status}, Channel = {self.__channel}, Volume = {Television.MIN_VOLUME}'
         else:
-            return f'Power {self.__status}, Channel {self.__channel}, Volume {self.__volume}'
+            return f'Power = {self.__status}, Channel = {self.__channel}, Volume = {self.__volume}'
