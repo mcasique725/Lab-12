@@ -1,4 +1,3 @@
-#https://github.com/mcasique725/Lab-12.git
 class Television:
 
     MIN_VOLUME = 0
