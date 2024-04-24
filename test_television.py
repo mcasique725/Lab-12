@@ -7,7 +7,6 @@ def test_init():
     assert str(tv) == "Power = False, Channel = 0, Volume = 0"
 
 
-# Test power method
 def test_power():
     tv = Television()
     tv.power()
@@ -16,7 +15,6 @@ def test_power():
     assert str(tv) == "Power = False, Channel = 0, Volume = 0"
 
 
-# Test mute method
 def test_mute():
     tv = Television()
     tv.power()
